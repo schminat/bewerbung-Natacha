@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Natacha Schmidt · Bewerbungs-Landingpage</title>
+  <style>
+    :root{
+      --bg:#ffffff; --fg:#111; --muted:#666; --border:#e6e6e6;
+      --accent:#6f42c1; /* Lila */
+      --accent-weak:#f3edff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg)}
+    a{color:var(--accent)}
+    .container{max-width:1080px;margin:0 auto;padding:0 16px}
+    header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--border)}
+    header .bar{height:64px;display:flex;align-items:center;justify-content:space-between}
+    nav a{text-decoration:none;color:var(--fg);margin-left:16px}
+    nav a:hover{text-decoration:underline}
+    .btn{display:inline-flex;gap:8px;align-items:center;padding:12px 16px;border-radius:12px;border:1px solid var(--border);text-decoration:none;color:var(--fg);background:#fff}
+    .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .btn:hover{filter:brightness(.97)}
+    .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--accent-weak);color:#432874;font-size:12px;border:1px solid #eadfff}
+    .hero{display:grid;gap:24px;padding:28px 0 8px}
+    @media(min-width:900px){.hero{grid-template-columns:1.25fr .75fr}}
+    h1{font-size:34px;line-height:1.15;margin:0 0 8px}
+    @media(min-width:768px){h1{font-size:44px}}
+    h2{font-size:28px;margin:0}
+    h3{margin:0;font-size:18px}
+    p{margin:8px 0}
+    .muted{color:var(--muted)}
+    .kpis{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:14px}
+    @media(min-width:640px){.kpis{grid-template-columns:repeat(4,1fr)}}
+    .kpi{border:1px solid var(--border);border-radius:14px;padding:14px;text-align:center;background:#fff}
+    .kpi .v{font-weight:700}
+    .photo{display:grid;place-items:center}
+    .photo .circle{height:220px;width:220px;border-radius:50%;overflow:hidden;border:6px solid var(--accent-weak);box-shadow:0 8px 20px rgba(111,66,193,.18)}
+    .section{padding:36px 0}
+    .card{border:1px solid var(--border);border-radius:16px;padding:16px;background:#fff}
+    details{border:1px solid var(--border);border-radius:12px;background:#fff}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:600;display:flex;align-items:center;justify-content:space-between}
+    summary::-webkit-details-marker{display:none}
+    .chev{transition:.2s transform}
+    details[open] .chev{transform:rotate(180deg)}
+    .acc-content{padding:0 16px 14px 16px;color:#333}
+    .acc-tag{margin-left:8px;font-weight:500;color:#432874}
+    .downloads{display:grid;gap:16px}
+    @media(min-width:900px){.downloads{grid-template-columns:repeat(2,1fr)}}
+    footer{border-top:1px solid var(--border);padding:18px 0;color:#666;font-size:14px;background:#fafafa}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:#fff;font-size:12px}
+    .grid-two{display:grid;gap:16px}
+    @media(min-width:900px){.grid-two{grid-template-columns:1fr 1fr}}
+    /* Testimonials */
+    .reviews{display:grid;gap:16px}
+    @media(min-width:900px){.reviews{grid-template-columns:repeat(2,1fr)}}
+    .review{border:1px solid var(--border);border-radius:16px;padding:16px;background:#faf9ff}
+    .stars{color:#ffb400;font-size:18px;letter-spacing:1px}
+    .review h4{margin:0 0 6px 0}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container bar">
+      <strong>Natacha Schmidt · Bewerbungs-Portfolio</strong>
+      <nav>
+        <a href="#skills-hard">Hard Skills</a>
+        <a href="#skills-soft">Soft Skills</a>
+        <a href="#references">Referenzen</a>
+        <a href="#downloads">Unterlagen</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <span class="badge">Bewerbung · Recruiting / Office / Koordination</span>
+        <h1>Ich stabilisiere Abläufe – und entwickle Menschen.</h1>
+        <p class="muted" style="font-size:18px">
+          19 Jahre kaufmännische Praxis · Recruiting & Active Sourcing · Prozess- & Exportkoordination · Leadership 4.0
+        </p>
+        <p>
+          Ich sehe Führung nicht als Beförderung, sondern als Werkzeug: Mit klarer Kommunikation und Struktur ermögliche ich, dass Teams wachsen
+          und Unternehmen stabil laufen. Erfahrung von Rekrutierung & Teamaufbau (<b>75</b> rekrutiert, <b>15</b> aktiv gecoacht) über
+          Exportkoordination bis Prozessoptimierung.
+        </p>
+
+        <!-- Suche/Zielrolle -->
+        <div class="card" style="margin-top:12px">
+          <b>Ich suche</b>: Recruiting / Active Sourcing · Office-Management · Teamkoordination
+          <span class="pill" style="margin-left:8px">Vollzeit</span>
+          <span class="pill">kleine Teams bis ~15</span>
+          <div class="muted" style="margin-top:6px">Fokus: Servicequalität · Prozessstabilität · Mitarbeiterentwicklung</div>
+        </div>
+
+        <!-- KPIs -->
+        <div class="kpis">
+          <div class="kpi"><div class="v">75</div><div class="muted" style="font-size:12px">rekrutiert</div></div>
+          <div class="kpi"><div class="v">15</div><div class="muted" style="font-size:12px">aktiv gecoacht</div></div>
+          <div class="kpi"><div class="v">200+/Tag</div><div class="muted" style="font-size:12px">Calls (Sykes)</div></div>
+          <div class="kpi"><div class="v">19 Jahre</div><div class="muted" style="font-size:12px">kfm. Praxis</div></div>
+        </div>
+      </div>
+
+      <!-- FOTO -->
+      <div class="photo">
+        <div class="circle">
+          <img src="foto.jpeg" alt="Profilfoto Natacha Schmidt" style="width:100%;height:100%;object-fit:cover">
+        </div>
+      </div>
+    </section>
+
+    <!-- HARD SKILLS -->
+    <section id="skills-hard" class="section">
+      <h2>Hard Skills</h2>
+      <div class="grid-two">
+        <div>
+          <details>
+            <summary>Excel / MS Office <span class="acc-tag">10+ Jahre</span><span class="chev">⌃</span></summary>
+            <div class="acc-content">Excel-Automatisierungen (UPM/Optimas), Pivot, Vorlagen; <b>Zeitersparnis</b> ~7 h/Monat in drei Abteilungen.</div>
+          </details>
+          <details>
+            <summary>CRM-Systeme <span class="acc-tag">Oracle, Evolution u. a.</span><span class="chev">⌃</span></summary>
+            <div class="acc-content">Pflege & Auswertung von Kandidaten/Customer-Daten; Dublettenreduktion, strukturierte Notizen, Nachverfolgung.</div>
+          </details>
+          <details>
+            <summary>Disposition & Planung <span class="acc-tag">Einsatz/Termine</span><span class="chev">⌃</span></summary>
+            <div class="acc-content">Monteureinsatz & Terminplanung (Optimas), Koordination mit Spedition/Zoll; Engpass-Management & Priorisierung.</div>
+          </details>
+        </div>
+        <div>
+          <details>
+            <summary>Export / Zoll (ATLAS) <span class="acc-tag">IHK-Zertifikate</span><span class="chev">⌃</span></summary>
+            <div class="acc-content">Exportabwicklung, Dokumente, Zollkoordination (EU-Fokus); Fehlerquoten gesenkt durch Ablagen & Checklisten.</div>
+          </details>
+          <details>
+            <summary>Recruiting / Active Sourcing <span class="acc-tag">75 Rekrutierungen</span><span class="chev">⌃</span></summary>
+            <div class="acc-content">Zielfirmenlisten, Direktansprache, <i>angenehme Hartnäckigkeit</i>; Teamaufbau mit 15 aktiven Mitgliedern (proWIN).</div>
+          </details>
+          <details>
+            <summary>Sprachen <span class="acc-tag">DE/EN/FR</span><span class="chev">⌃</span></summary>
+            <div class="acc-content">Deutsch C2, Englisch B1, Französisch B1 – genutzt in Service, Export & Recruiting.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOFT SKILLS -->
+    <section id="skills-soft" class="section">
+      <h2>Soft Skills</h2>
+      <div class="grid-two">
+        <div>
+          <details>
+            <summary>Führung & Coaching <span class="acc-tag">postheroisch</span><span class="chev">⌃</span></summary>
+            <div class="acc-content">Führung als eigener Job: Coaching, 1:1, Zielklarheit; <b>+47 % Umsatz</b> im Team durch Routinen & digitale Strategien.</div>
+          </details>
+          <details>
+            <summary>Kommunikation & Schnittstellen <span class="acc-tag">klar & verbindlich</span><span class="chev">⌃</span></summary>
+            <div class="acc-content">Abstimmung zwischen Beratung, Fachbereichen & Kunden; weniger Nachfragen durch saubere Doku & Erwartungen.</div>
+          </details>
+          <details>
+            <summary>Prozessoptimierung <span class="acc-tag">effizient</span><span class="chev">⌃</span></summary>
+            <div class="acc-content">Verschlankte Reklamations-/Exportprozesse, weniger Doppelarbeit; messbare Zeitgewinne.</div>
+          </details>
+        </div>
+        <div>
+          <details>
+            <summary>Organisation & Struktur <span class="acc-tag">verlässlich</span><span class="chev">⌃</span></summary>
+            <div class="acc-content">Termin- & Dokumentenmanagement, Priorisierung, Übergaben; stabiler Betrieb im Tagesgeschäft.</div>
+          </details>
+          <details>
+            <summary>Belastbarkeit <span class="acc-tag">200+ Calls/Tag</span><span class="chev">⌃</span></summary>
+            <div class="acc-content">Hohe Taktung gewohnt; Qualität trotz Menge durch Routinen, Templates, ruhige Kommunikation.</div>
+          </details>
+          <details>
+            <summary>Kundenorientierung <span class="acc-tag">Qualitätsanspruch</span><span class="chev">⌃</span></summary>
+            <div class="acc-content">Wertschätzende Ansprache, klare Zusagen, Nachfassen mit <i>angenehmer Hartnäckigkeit</i>.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERENZEN -->
+    <section id="references" class="section">
+      <h2>Referenzen (aus Arbeitszeugnissen)</h2>
+      <div class="reviews">
+        <div class="review">
+          <h4>Optimas Maschinenfabrik</h4>
+          <div class="stars">★★★★★</div>
+          <p>„Frau Schmidt zeichnete sich durch eine äußerst strukturierte und zuverlässige Arbeitsweise aus. Besonders ihre Optimierungen in der Schnittstellenkommunikation führten zu spürbaren Effizienzsteigerungen.“</p>
+        </div>
+        <div class="review">
+          <h4>UPM Nordland Papier</h4>
+          <div class="stars">★★★★★</div>
+          <p>„Sie bearbeitete täglich ein hohes Reklamationsvolumen mit großer Sorgfalt und Genauigkeit. Durch ihre Excel-Lösungen verringerte sie Fehlerquoten und beschleunigte die Abläufe merklich.“</p>
+        </div>
+        <div class="review">
+          <h4>Fresena Flug GmbH</h4>
+          <div class="stars">★★★★★</div>
+          <p>„Frau Schmidt überzeugte durch ihr Organisationstalent in der Einsatz- und Flugplanung. Ihre Abstimmung mit Piloten, Kunden und Behörden war stets präzise und zuverlässig.“</p>
+        </div>
+        <div class="review">
+          <h4>Apollonia S.A.</h4>
+          <div class="stars">★★★★★</div>
+          <p>„Sie bewältigte ihre vielfältigen Verwaltungs- und Buchhaltungsaufgaben stets mit Genauigkeit und Verantwortungsbewusstsein. Ihre strukturierte Arbeitsweise war für die Einrichtung von großem Wert.“</p>
+        </div>
+        <div class="review">
+          <h4>proWIN · Teamleitung</h4>
+          <div class="stars">★★★★★</div>
+          <p>„Als Teamleiterin rekrutierte und coachte Frau Schmidt 75 Partner, von denen 15 aktiv im Vertrieb blieben. In der Corona-Zeit steigerte sie den Umsatz ihres Teams um +47 % – ein Beleg für ihre Führungsstärke und Innovationskraft.“</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNTERLAGEN -->
+    <section id="downloads" class="section">
+      <h2>Unterlagen</h2>
+      <div class="downloads">
+        <div class="card"><h3>Lebenslauf (Führungskraft)</h3><a class="btn primary" href="Natacha_Schmidt_CV_FK.pdf">Download</a></div>
+        <div class="card"><h3>Lebenslauf (Zusammenfassung)</h3><a class="btn primary" href="Natacha_Schmidt_Lebenslauf_Zusammenfassung.pdf">Download</a></div>
+        <div class="card"><h3>Arbeitszeugnisse</h3><a class="btn primary" href="Natacha_Schmidt_Arbeitszeugnisse.pdf">Download</a></div>
+        <div class="card"><h3>Zertifikate – Unternehmensführung</h3><a class="btn primary" href="Unternehmensfuehrung_Zertifikat.pdf">Download</a></div>
+        <div class="card"><h3>Zertifikate – Advanced Leadership</h3><a class="btn primary" href="Advanced_Leadership_1.pdf">Download</a></div>
+        <div class="card"><h3>Zertifikate – Diplom & IHK</h3><a class="btn primary" href="Natacha_Schmidt_Diplom_IHK_Zertifikat.pdf">Download</a></div>
+        <div class="card"><h3>Zertifikate – Transportrecht & Excel</h3><a class="btn primary" href="Natacha_Schmidt_IHK_Transportrecht_Excel.pdf">Download</a></div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" class="section">
+      <h2>Kontakt</h2>
+      <div class="card" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+        <a class="btn primary" href="mailto:natacha.schmidt.lux@gmail.com">E-Mail senden</a>
+        <a class="btn" href="tel:015783922128">☎ 0157 83922128</a>
+        <span class="muted">Stand: September 2025</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div>© 2025 Natacha Schmidt. Alle Rechte vorbehalten.</div>
+      <div class="muted">Private Landingpage, ausschließlich für Bewerbungszwecke.</div>
+    </div>
+  </footer>
+</body>
+</html>
