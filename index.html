@@ -4,33 +4,84 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Natacha Schmidt · Bewerbungs-Landingpage</title>
+
+  <!-- Suchmaschinen sollen die Seite NICHT indexieren -->
+  <meta name="robots" content="noindex,nofollow">
+
+  <!-- Google Analytics mit DSGVO-Opt-in -->
+  <script>
+    window.GA_MEASUREMENT_ID = 'G-2KBK6XLTW5';
+
+    function loadGA(id){
+      if (!id || window.gtagLoaded) return;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+      document.head.appendChild(s);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', id, { 'anonymize_ip': true });
+      window.gtagLoaded = true;
+    }
+
+    (function(){
+      var choice = localStorage.getItem('ga_consent');
+      if (choice === 'granted') loadGA(window.GA_MEASUREMENT_ID);
+
+      document.addEventListener('DOMContentLoaded', function(){
+        var banner = document.getElementById('cookie-banner');
+        if (!choice && banner) banner.style.display = 'flex';
+
+        var accept = document.getElementById('cookie-accept');
+        var decline = document.getElementById('cookie-decline');
+        if (accept) accept.onclick = function(){
+          localStorage.setItem('ga_consent','granted');
+          if (banner) banner.style.display='none';
+          loadGA(window.GA_MEASUREMENT_ID);
+        };
+        if (decline) decline.onclick = function(){
+          localStorage.setItem('ga_consent','denied');
+          if (banner) banner.style.display='none';
+        };
+
+        var reset = document.getElementById('cookie-reset');
+        if (reset) reset.onclick = function(e){
+          e.preventDefault();
+          localStorage.removeItem('ga_consent');
+          location.reload();
+        };
+      });
+    })();
+  </script>
+
   <style>
     :root{
       --bg:#ffffff; --fg:#111; --muted:#666; --border:#e6e6e6;
-      --accent:#6f42c1; /* Lila */
-      --accent-weak:#f3edff;
+      --accent:#6f42c1; --accent-weak:#f3edff;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg)}
+    body{margin:0;font-family:system-ui,Arial,sans-serif;background:var(--bg);color:var(--fg)}
     a{color:var(--accent)}
     .container{max-width:1080px;margin:0 auto;padding:0 16px}
     header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--border)}
     header .bar{height:64px;display:flex;align-items:center;justify-content:space-between}
     nav a{text-decoration:none;color:var(--fg);margin-left:16px}
     nav a:hover{text-decoration:underline}
-    .btn{display:inline-flex;gap:8px;align-items:center;padding:12px 16px;border-radius:12px;border:1px solid var(--border);text-decoration:none;color:var(--fg);background:#fff}
+    .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:10px;border:1px solid var(--border);text-decoration:none;color:var(--fg);background:#fff}
     .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
     .btn:hover{filter:brightness(.97)}
     .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--accent-weak);color:#432874;font-size:12px;border:1px solid #eadfff}
     .hero{display:grid;gap:24px;padding:28px 0 8px}
     @media(min-width:900px){.hero{grid-template-columns:1.25fr .75fr}}
-    h1{font-size:34px;line-height:1.15;margin:0 0 8px}
-    @media(min-width:768px){h1{font-size:44px}}
-    h2{font-size:28px;margin:0}
+    h1{font-size:34px;margin:0 0 8px}
+    h2{font-size:28px;margin:0 0 16px}
     h3{margin:0;font-size:18px}
     p{margin:8px 0}
     .muted{color:var(--muted)}
-    .kpis{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:14px}
+    .kpis{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin-top:14px}
     @media(min-width:640px){.kpis{grid-template-columns:repeat(4,1fr)}}
     .kpi{border:1px solid var(--border);border-radius:14px;padding:14px;text-align:center;background:#fff}
     .kpi .v{font-weight:700}
@@ -49,18 +100,31 @@
     .downloads{display:grid;gap:16px}
     @media(min-width:900px){.downloads{grid-template-columns:repeat(2,1fr)}}
     footer{border-top:1px solid var(--border);padding:18px 0;color:#666;font-size:14px;background:#fafafa}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:#fff;font-size:12px}
-    .grid-two{display:grid;gap:16px}
-    @media(min-width:900px){.grid-two{grid-template-columns:1fr 1fr}}
-    /* Testimonials */
     .reviews{display:grid;gap:16px}
     @media(min-width:900px){.reviews{grid-template-columns:repeat(2,1fr)}}
     .review{border:1px solid var(--border);border-radius:16px;padding:16px;background:#faf9ff}
-    .stars{color:#ffb400;font-size:18px;letter-spacing:1px}
-    .review h4{margin:0 0 6px 0}
+    .stars{color:#ffb400;font-size:18px}
+    /* Cookie Banner */
+    #cookie-banner{display:none;position:fixed;bottom:16px;left:16px;right:16px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px 16px;box-shadow:0 6px 24px rgba(0,0,0,.12);z-index:9999}
+    #cookie-banner .btn{padding:8px 12px;font-size:14px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:#fff;font-size:12px}
+    .grid-two{display:grid;gap:16px}
+    @media(min-width:900px){.grid-two{grid-template-columns:1fr 1fr}}
   </style>
 </head>
 <body>
+  <!-- Cookie-Banner -->
+  <div id="cookie-banner">
+    <div style="display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+      <div>Diese Seite verwendet <b>Google Analytics</b> zur anonymisierten Reichweitenmessung.
+      Details siehe <a href="#datenschutz">Datenschutz</a>.</div>
+      <div style="display:flex;gap:8px">
+        <button id="cookie-decline" class="btn">Ablehnen</button>
+        <button id="cookie-accept" class="btn primary">Zustimmen</button>
+      </div>
+    </div>
+  </div>
+
   <header>
     <div class="container bar">
       <strong>Natacha Schmidt · Bewerbungs-Portfolio</strong>
@@ -80,16 +144,11 @@
       <div>
         <span class="badge">Bewerbung · Recruiting / Office / Koordination</span>
         <h1>Ich stabilisiere Abläufe – und entwickle Menschen.</h1>
-        <p class="muted" style="font-size:18px">
-          19 Jahre kaufmännische Praxis · Recruiting & Active Sourcing · Prozess- & Exportkoordination · Leadership 4.0
-        </p>
-        <p>
-          Ich sehe Führung nicht als Beförderung, sondern als Werkzeug: Mit klarer Kommunikation und Struktur ermögliche ich, dass Teams wachsen
-          und Unternehmen stabil laufen. Erfahrung von Rekrutierung & Teamaufbau (<b>75</b> rekrutiert, <b>15</b> aktiv gecoacht) über
-          Exportkoordination bis Prozessoptimierung.
-        </p>
+        <p class="muted">19 Jahre kaufmännische Praxis · Recruiting & Active Sourcing · Prozess- & Exportkoordination · Leadership 4.0</p>
+        <p>Ich sehe Führung nicht als Beförderung, sondern als Werkzeug: Mit klarer Kommunikation und Struktur ermögliche ich, dass Teams wachsen
+        und Unternehmen stabil laufen. Erfahrung von Rekrutierung & Teamaufbau (<b>75</b> rekrutiert, <b>15</b> aktiv gecoacht) über
+        Exportkoordination bis Prozessoptimierung.</p>
 
-        <!-- Suche/Zielrolle -->
         <div class="card" style="margin-top:12px">
           <b>Ich suche</b>: Recruiting / Active Sourcing · Office-Management · Teamkoordination
           <span class="pill" style="margin-left:8px">Vollzeit</span>
@@ -97,7 +156,6 @@
           <div class="muted" style="margin-top:6px">Fokus: Servicequalität · Prozessstabilität · Mitarbeiterentwicklung</div>
         </div>
 
-        <!-- KPIs -->
         <div class="kpis">
           <div class="kpi"><div class="v">75</div><div class="muted" style="font-size:12px">rekrutiert</div></div>
           <div class="kpi"><div class="v">15</div><div class="muted" style="font-size:12px">aktiv gecoacht</div></div>
@@ -105,8 +163,6 @@
           <div class="kpi"><div class="v">19 Jahre</div><div class="muted" style="font-size:12px">kfm. Praxis</div></div>
         </div>
       </div>
-
-      <!-- FOTO -->
       <div class="photo">
         <div class="circle">
           <img src="foto.jpeg" alt="Profilfoto Natacha Schmidt" style="width:100%;height:100%;object-fit:cover">
@@ -230,22 +286,28 @@
       </div>
     </section>
 
-    <!-- KONTAKT -->
-    <section id="kontakt" class="section">
-      <h2>Kontakt</h2>
-      <div class="card" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
-        <a class="btn primary" href="mailto:natacha.schmidt.lux@gmail.com">E-Mail senden</a>
-        <a class="btn" href="tel:015783922128">☎ 0157 83922128</a>
-        <span class="muted">Stand: September 2025</span>
-      </div>
+    <!-- DATENSCHUTZ -->
+    <section id="datenschutz" class="section">
+      <h2>Datenschutz</h2>
+      <p class="muted">
+        Diese private Bewerbungs-Seite nutzt Google Analytics (GA4), um Aufrufe und Downloads anonymisiert zu messen.
+        Es werden keine personenbezogenen Daten erfasst. IPs werden anonymisiert.
+      </p>
+      <ul>
+        <li>Betreiber: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.</li>
+        <li>Zweck: Reichweitenmessung (z. B. Aufrufe, PDF-Downloads).</li>
+        <li>Rechtsgrundlage: Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).</li>
+        <li>Widerruf: <a href="#" id="cookie-reset">Cookie-Einstellungen ändern</a>.</li>
+      </ul>
     </section>
   </main>
 
   <footer>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
       <div>© 2025 Natacha Schmidt. Alle Rechte vorbehalten.</div>
       <div class="muted">Private Landingpage, ausschließlich für Bewerbungszwecke.</div>
     </div>
   </footer>
 </body>
 </html>
+
