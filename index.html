@@ -2,130 +2,57 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Natacha Schmidt · Bewerbungs-Landingpage</title>
-
-  <!-- Suchmaschinen sollen die Seite NICHT indexieren -->
-  <meta name="robots" content="noindex,nofollow">
-
-  <!-- Google Analytics mit DSGVO-Opt-in -->
-  <script>
-    window.GA_MEASUREMENT_ID = 'G-2KBK6XLTW5';
-
-    function loadGA(id){
-      if (!id || window.gtagLoaded) return;
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
-      document.head.appendChild(s);
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', id, { 'anonymize_ip': true });
-      window.gtagLoaded = true;
-    }
-
-    (function(){
-      var choice = localStorage.getItem('ga_consent');
-      if (choice === 'granted') loadGA(window.GA_MEASUREMENT_ID);
-
-      document.addEventListener('DOMContentLoaded', function(){
-        var banner = document.getElementById('cookie-banner');
-        if (!choice && banner) banner.style.display = 'flex';
-
-        var accept = document.getElementById('cookie-accept');
-        var decline = document.getElementById('cookie-decline');
-        if (accept) accept.onclick = function(){
-          localStorage.setItem('ga_consent','granted');
-          if (banner) banner.style.display='none';
-          loadGA(window.GA_MEASUREMENT_ID);
-        };
-        if (decline) decline.onclick = function(){
-          localStorage.setItem('ga_consent','denied');
-          if (banner) banner.style.display='none';
-        };
-
-        var reset = document.getElementById('cookie-reset');
-        if (reset) reset.onclick = function(e){
-          e.preventDefault();
-          localStorage.removeItem('ga_consent');
-          location.reload();
-        };
-      });
-    })();
-  </script>
-
   <style>
-    :root{
-      --bg:#ffffff; --fg:#111; --muted:#666; --border:#e6e6e6;
-      --accent:#6f42c1; --accent-weak:#f3edff;
+    body {font-family: system-ui, Arial, sans-serif; margin:0; background:#fff; color:#111;}
+    header, footer {background:#fafafa; border-bottom:1px solid #ddd;}
+    header .wrap, footer .wrap {max-width:1000px; margin:0 auto; padding:1rem; display:flex; justify-content:space-between; align-items:center;}
+    h1,h2,h3 {margin:0.5em 0;}
+    .hero {max-width:1000px; margin:2rem auto; padding:1rem;}
+    .kpi {display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1rem; margin-top:1rem;}
+    .card {border:1px solid #ddd; border-radius:10px; padding:1rem; background:#fff;}
+    section {padding:2rem 1rem; max-width:1000px; margin:auto;}
+    table {width:100%; border-collapse:collapse; margin-top:1rem;}
+    th, td {border:1px solid #ddd; padding:0.5rem; text-align:left;}
+    nav a {margin-left:1rem; text-decoration:none; color:#111;}
+    nav a:hover {text-decoration:underline;}
+    .btn {display:inline-block; padding:0.5rem 1rem; border-radius:8px; background:#111; color:#fff; text-decoration:none; margin-top:0.5rem;}
+
+    /* DSGVO Banner */
+    #cookie-banner {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      background: #fff;
+      color: #111;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      max-width: 400px;
+      text-align: center;
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,Arial,sans-serif;background:var(--bg);color:var(--fg)}
-    a{color:var(--accent)}
-    .container{max-width:1080px;margin:0 auto;padding:0 16px}
-    header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--border)}
-    header .bar{height:64px;display:flex;align-items:center;justify-content:space-between}
-    nav a{text-decoration:none;color:var(--fg);margin-left:16px}
-    nav a:hover{text-decoration:underline}
-    .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:10px;border:1px solid var(--border);text-decoration:none;color:var(--fg);background:#fff}
-    .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .btn:hover{filter:brightness(.97)}
-    .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--accent-weak);color:#432874;font-size:12px;border:1px solid #eadfff}
-    .hero{display:grid;gap:24px;padding:28px 0 8px}
-    @media(min-width:900px){.hero{grid-template-columns:1.25fr .75fr}}
-    h1{font-size:34px;margin:0 0 8px}
-    h2{font-size:28px;margin:0 0 16px}
-    h3{margin:0;font-size:18px}
-    p{margin:8px 0}
-    .muted{color:var(--muted)}
-    .kpis{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin-top:14px}
-    @media(min-width:640px){.kpis{grid-template-columns:repeat(4,1fr)}}
-    .kpi{border:1px solid var(--border);border-radius:14px;padding:14px;text-align:center;background:#fff}
-    .kpi .v{font-weight:700}
-    .photo{display:grid;place-items:center}
-    .photo .circle{height:220px;width:220px;border-radius:50%;overflow:hidden;border:6px solid var(--accent-weak);box-shadow:0 8px 20px rgba(111,66,193,.18)}
-    .section{padding:36px 0}
-    .card{border:1px solid var(--border);border-radius:16px;padding:16px;background:#fff}
-    details{border:1px solid var(--border);border-radius:12px;background:#fff}
-    details+details{margin-top:10px}
-    summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:600;display:flex;align-items:center;justify-content:space-between}
-    summary::-webkit-details-marker{display:none}
-    .chev{transition:.2s transform}
-    details[open] .chev{transform:rotate(180deg)}
-    .acc-content{padding:0 16px 14px 16px;color:#333}
-    .acc-tag{margin-left:8px;font-weight:500;color:#432874}
-    .downloads{display:grid;gap:16px}
-    @media(min-width:900px){.downloads{grid-template-columns:repeat(2,1fr)}}
-    footer{border-top:1px solid var(--border);padding:18px 0;color:#666;font-size:14px;background:#fafafa}
-    .reviews{display:grid;gap:16px}
-    @media(min-width:900px){.reviews{grid-template-columns:repeat(2,1fr)}}
-    .review{border:1px solid var(--border);border-radius:16px;padding:16px;background:#faf9ff}
-    .stars{color:#ffb400;font-size:18px}
-    #cookie-banner{display:none;position:fixed;bottom:16px;left:16px;right:16px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px 16px;box-shadow:0 6px 24px rgba(0,0,0,.12);z-index:9999}
-    #cookie-banner .btn{padding:8px 12px;font-size:14px}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:#fff;font-size:12px}
-    .grid-two{display:grid;gap:16px}
-    @media(min-width:900px){.grid-two{grid-template-columns:1fr 1fr}}
+    #cookie-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 9998;
+    }
   </style>
 </head>
 <body>
-  <!-- Cookie-Banner -->
+  <!-- DSGVO Overlay & Banner -->
+  <div id="cookie-overlay"></div>
   <div id="cookie-banner">
-    <div style="display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-      <div>Diese Seite verwendet <b>Google Analytics</b> zur anonymisierten Reichweitenmessung.
-      Details siehe <a href="#datenschutz">Datenschutz</a>.</div>
-      <div style="display:flex;gap:8px">
-        <button id="cookie-decline" class="btn">Ablehnen</button>
-        <button id="cookie-accept" class="btn primary">Zustimmen</button>
-      </div>
-    </div>
+    <p>Diese Website verwendet Cookies (Google Analytics). Stimmen Sie der Nutzung zu?</p>
+    <button onclick="acceptCookies()">Akzeptieren</button>
+    <button onclick="declineCookies()">Ablehnen</button>
   </div>
 
   <header>
-    <div class="container bar">
+    <div class="wrap">
       <strong>Natacha Schmidt · Bewerbungs-Portfolio</strong>
       <nav>
         <a href="#skills-hard">Hard Skills</a>
@@ -138,255 +65,108 @@
     </div>
   </header>
 
-  <main class="container">
-    <!-- HERO -->
-    <section class="hero">
-      <div>
-        <span class="badge">Bewerbung · Recruiting / Office / Koordination</span>
-        <h1>Ich stabilisiere Abläufe – und entwickle Menschen.</h1>
-        <p class="muted">19 Jahre kaufmännische Praxis · Recruiting & Active Sourcing · Prozess- & Exportkoordination · Leadership 4.0</p>
-        <p>Ich sehe Führung nicht als Beförderung, sondern als Werkzeug: Mit klarer Kommunikation und Struktur ermögliche ich, dass Teams wachsen
-        und Unternehmen stabil laufen. Erfahrung von Rekrutierung & Teamaufbau (<b>75</b> rekrutiert, <b>15</b> aktiv gecoacht) über
-        Exportkoordination bis Prozessoptimierung.</p>
+  <div class="hero">
+    <h1>Bewerbungs-Landingpage</h1>
+    <p>Office-Management · Recruiting/Active Sourcing · Export/Projektkoordination</p>
+    <p>Ich halte Abläufe stabil, vereinfache Prozesse und gewinne Menschen – durch klare Kommunikation und moderne Führung. Auf dieser Seite finden Sie Ergebnisse, Nachweise und alle Unterlagen kompakt.</p>
+    <div class="kpi">
+      <div class="card"><strong>19 Jahre</strong><br><small>Kaufmännische Praxis</small></div>
+      <div class="card"><strong>75 rekrutiert</strong><br><small>15 aktiv gecoacht</small></div>
+      <div class="card"><strong>200+/Tag</strong><br><small>Calls (Sykes)</small></div>
+      <div class="card"><strong>Leadership 4.0</strong><br><small>Weiterbildung (laufend)</small></div>
+    </div>
+  </div>
 
-        <div class="card" style="margin-top:12px">
-          <b>Ich suche</b>: Recruiting / Active Sourcing · Office-Management · Teamkoordination
-          <span class="pill" style="margin-left:8px">Vollzeit</span>
-          <span class="pill">kleine Teams bis ~15</span>
-          <div class="muted" style="margin-top:6px">Fokus: Servicequalität · Prozessstabilität · Mitarbeiterentwicklung</div>
-        </div>
+  <section id="skills-hard" class="section">
+    <h2>Hard Skills</h2>
+    <div class="grid-two">
+      <div class="card"><h3>Excel / MS Office</h3><p><b>10+ Jahre</b> · Automatisierungen, Pivot, Vorlagen. Zeiterparnis ~7h/Monat (UPM/Optimas).</p></div>
+      <div class="card"><h3>Export / Zoll (ATLAS)</h3><p><b>IHK-Zertifikate</b> · Dokumente, Zollkoordination (EU-Fokus); Fehlerquoten gesenkt durch Checklisten & klare Ablagen.</p></div>
+      <div class="card"><h3>SAP</h3><p><b>SD · Export/Reklamation</b> · Praxis UPM/Optimas. Stammdatenpflege, Schnittstellenabsprachen, Qualität verbessert.</p></div>
+      <div class="card"><h3>Buchhaltung</h3><p><b>Debitoren/Kreditoren</b> · Vorkontierung, Rechnungsprüfung, Mahnwesen, Kassenführung (Fresena/Apollonia; System Gesall).</p></div>
+      <div class="card"><h3>Salesforce / CRM</h3><p><b>Reporting & Pflege</b> · Kundendatenpflege, Auswertungen, Follow-ups. Erfahrung mit Evolution (Kulimi) und Blumer.</p></div>
+      <div class="card"><h3>Projekt- & Prozessmanagement</h3><p><b>Praxis</b> · Abläufe verschlankt, Doppelarbeit reduziert, Übergaben stabilisiert.</p></div>
+      <div class="card"><h3>AS400 & Evolution (Kulimi)</h3><p><b>ERP</b> · Auftrags-/Artikel- und Kundenprozesse im Tagesgeschäft. Saubere Doku, Routinen, weniger Rework.</p></div>
+      <div class="card"><h3>Sprachen</h3><p><b>DE C2 · EN B1 · FR B2 · LU C2</b> · Sicher in Service, Export & Recruiting-Kommunikation.</p></div>
+    </div>
+  </section>
 
-        <div class="kpis">
-          <div class="kpi"><div class="v">75</div><div class="muted" style="font-size:12px">rekrutiert</div></div>
-          <div class="kpi"><div class="v">15</div><div class="muted" style="font-size:12px">aktiv gecoacht</div></div>
-          <div class="kpi"><div class="v">200+/Tag</div><div class="muted" style="font-size:12px">Calls (Sykes)</div></div>
-          <div class="kpi"><div class="v">19 Jahre</div><div class="muted" style="font-size:12px">kfm. Praxis</div></div>
-        </div>
-      </div>
-      <div class="photo">
-        <div class="circle">
-          <img src="foto.jpeg" alt="Profilfoto Natacha Schmidt" style="width:100%;height:100%;object-fit:cover">
-        </div>
-      </div>
-    </section>
+  <section id="skills-soft" class="section">
+    <h2>Soft Skills</h2>
+    <div class="grid-two">
+      <div class="card"><h3>Führung & Coaching</h3><p>Führung als eigener Job: Coaching, 1:1, Zielklarheit. Postheroisch, fördernd, verbindlich.</p></div>
+      <div class="card"><h3>Organisationstalent</h3><p>Backoffice-Management, Terminplanung, Buchhaltung. Struktur auch bei hoher Belastung.</p></div>
+      <div class="card"><h3>Lösungsorientierung</h3><p>Prozesse verbessern, Konflikte moderieren, Ergebnisse sichern.</p></div>
+    </div>
+  </section>
 
-    <!-- HARD SKILLS -->
-    <section id="skills-hard" class="section">
-      <h2>Hard Skills</h2>
-      <div class="grid-two">
-        <div>
-          <details>
-            <summary>Excel / MS Office <span class="acc-tag">10+ Jahre</span><span class="chev">⌃</span></summary>
-            <div class="acc-content">Excel-Automatisierungen (UPM/Optimas), Pivot, Vorlagen; <b>Zeitersparnis</b> ~7 h/Monat in drei Abteilungen.</div>
-          </details>
+  <section id="leadership" class="section">
+    <h2>Führung</h2>
+    <div class="grid-two">
+      <div class="card"><h3>Führung 4.0 (IU Akademie)</h3><p>Hochschulzertifikat · 4 Module</p>
+        <ul><li>Digital Leadership & Change</li><li>Führungskommunikation & Motivation</li><li>Organisation & agile Methoden</li><li>Selbst- & Zeitmanagement</li></ul></div>
+      <div class="card"><h3>IHK: Vertriebsprofi & Führungskraft</h3><p><b>92 Lehrgangsstunden</b> · abgeschlossen</p>
+        <ul><li>Teamaufbau & Coaching</li><li>Digitale Verkaufskonzepte</li><li>KPI-Steuerung</li><li>Rahmen im Direktvertrieb</li></ul></div>
+      <div class="card"><h3>Insights Discovery</h3><p>Kenntnisse im Farben-Modell: Kommunikation, Rollenklarheit, Konfliktprävention.</p></div>
+      <div class="card"><h3>Praxis: proWIN</h3><ul><li>75 rekrutiert, 15 aktiv gecoacht</li><li>+47 % Umsatz während Corona</li><li>Dranbleiben mit angenehmer Hartnäckigkeit</li></ul></div>
+    </div>
+  </section>
 
-          <details>
-            <summary>SAP <span class="acc-tag">SD · Export/Reklamation</span><span class="chev">⌃</span></summary>
-            <div class="acc-content">Praxis in SAP SD für Exportabwicklung & Reklamationen (UPM, Optimas). Qualitäts- & Durchlaufzeitverbesserungen durch saubere Stammdaten und Schnittstellenabsprachen.</div>
-          </details>
+  <section id="references" class="section">
+    <h2>Referenzen aus Arbeitszeugnissen</h2>
+    <div class="card"><h3>Optimas Maschinenfabrik ⭐⭐⭐⭐⭐</h3><p>„Strukturierte, zuverlässige Arbeitsweise. Optimierungen führten zu Effizienzsteigerungen.“</p></div>
+    <div class="card"><h3>UPM Nordland Papier ⭐⭐⭐⭐⭐</h3><p>„Bearbeitete hohes Reklamationsvolumen mit Sorgfalt. Excel-Lösungen senkten Fehlerquoten.“</p></div>
+    <div class="card"><h3>Fresena Flug GmbH ⭐⭐⭐⭐⭐</h3><p>„Organisationstalent in Einsatz- und Flugplanung. Abstimmung mit Piloten, Kunden, Behörden stets präzise.“</p></div>
+    <div class="card"><h3>Apollonia S.A. ⭐⭐⭐⭐⭐</h3><p>„Bewältigte Verwaltungs- und Buchhaltungsaufgaben genau und verantwortungsbewusst.“</p></div>
+    <div class="card"><h3>proWIN ⭐⭐⭐⭐⭐</h3><p>„Teamleiterin: 75 rekrutiert, 15 aktiv gecoacht. +47 % Umsatz während Corona.“</p></div>
+  </section>
 
-          <details>
-            <summary>Salesforce / CRM <span class="acc-tag">Reporting & Pflege</span><span class="chev">⌃</span></summary>
-            <div class="acc-content">Kundendatenpflege, Auswertungen, Follow-ups. Erfahrung zusätzlich mit Evolution (Kulimi) und Blumer.</div>
-          </details>
+  <section id="downloads">
+    <h2>Unterlagen</h2>
+    <div class="card"><h3>Lebenslauf</h3><a href="Natacha_Schmidt_CV_Fk.PDF" class="btn">Download</a></div>
+    <div class="card"><h3>Arbeitszeugnisse</h3><a href="Natacha_Schmidt_Arbeitszeugnisse.pdf" class="btn">Download</a></div>
+    <div class="card"><h3>Zertifikate</h3><a href="Natacha_Schmidt_Diplom_IHK_Zertifikat.pdf" class="btn">Download</a></div>
+  </section>
 
-          <details>
-            <summary>AS400 & Evolution (Kulimi) <span class="acc-tag">ERP</span><span class="chev">⌃</span></summary>
-            <div class="acc-content">Auftrags-/Artikel- und Kundenprozesse im Tagesgeschäft. Saubere Doku, less rework durch definierte Routinen.</div>
-          </details>
-        </div>
-
-        <div>
-          <details>
-            <summary>Export / Zoll (ATLAS) <span class="acc-tag">IHK-Zertifikate</span><span class="chev">⌃</span></summary>
-            <div class="acc-content">Exportabwicklung, Dokumente, Zollkoordination (EU-Fokus); Fehlerquoten gesenkt durch Checklisten & klare Ablagen.</div>
-          </details>
-
-          <details>
-            <summary>Buchhaltung (vorbereitend) <span class="acc-tag">Debitoren/Kreditoren</span><span class="chev">⌃</span></summary>
-            <div class="acc-content">Vorkontierung, Rechnungsprüfung, Mahnwesen, Kassenführung (Fresena/Apollonia; System u. a. Gesall). Verbindliche Abstimmung mit Steuerberatung.</div>
-          </details>
-
-          <details>
-            <summary>Projekt- & Prozessmanagement <span class="acc-tag">Praxis</span><span class="chev">⌃</span></summary>
-            <div class="acc-content">Abläufe verschlankt, Doppelarbeit reduziert, Übergaben stabilisiert; messbare Effekte in Reklamation/Export und Backoffice.</div>
-          </details>
-
-          <details>
-            <summary>Sprachen <span class="acc-tag">DE C2 · EN B1 · FR B2 · LU C2</span><span class="chev">⌃</span></summary>
-            <div class="acc-content">Eingesetzt in Service, Export & Recruiting-Kommunikation; sichere Schrift/Telefon in DE, praxistauglich EN/FR/LU.</div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOFT SKILLS -->
-    <section id="skills-soft" class="section">
-      <h2>Soft Skills</h2>
-      <div class="grid-two">
-        <div>
-          <details>
-            <summary>Führung & Coaching <span class="acc-tag">postheroisch</span><span class="chev">⌃</span></summary>
-            <div class="acc-content">Führung als eigener Job: 1:1, Zielklarheit, Routinen; <b>+47 % Umsatz</b> im Team durch konsequente Umsetzung.</div>
-          </details>
-
-          <details>
-            <summary>Lösungsorientierung <span class="acc-tag">pragmatisch</span><span class="chev">⌃</span></summary>
-            <div class="acc-content">Schnelle Ursachenanalyse, klare nächste Schritte, Nachhalten bis „done“ – mit <i>angenehmer Hartnäckigkeit</i>.</div>
-          </details>
-
-          <details>
-            <summary>Eigenverantwortung <span class="acc-tag">verlässlich</span><span class="chev">⌃</span></summary>
-            <div class="acc-content">Ownership für Prozesse & Ergebnisse, proaktive Kommunikation bei Risiken, belastbare Zusagen.</div>
-          </details>
-        </div>
-
-        <div>
-          <details>
-            <summary>Organisationstalent <span class="acc-tag">strukturstark</span><span class="chev">⌃</span></summary>
-            <div class="acc-content">Backoffice-Management, Termin-/Einsatzplanung, saubere Übergaben – Stabilität im Tagesgeschäft.</div>
-          </details>
-
-          <details>
-            <summary>Kommunikation & Schnittstellen <span class="acc-tag">klar & verbindlich</span><span class="chev">⌃</span></summary>
-            <div class="acc-content">Abstimmung zwischen Beratung, Fachbereichen, Kunden/Kandidaten; weniger Rückfragen durch saubere Doku.</div>
-          </details>
-
-          <details>
-            <summary>Belastbarkeit <span class="acc-tag">200+ Calls/Tag</span><span class="chev">⌃</span></summary>
-            <div class="acc-content">Hohe Taktung gewohnt; Qualität trotz Menge durch Templates, Routinen, ruhige Kommunikation.</div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- FÜHRUNG -->
-    <section id="leadership" class="section">
-      <h2>Führung</h2>
-      <div class="grid-two">
-        <!-- Führung 4.0 -->
-        <div class="card">
-          <h3>Führung 4.0 (IU Akademie)</h3>
-          <p class="muted">Hochschulzertifikat · 4 Module</p>
-          <ul style="margin:0 0 0 18px">
-            <li><b>Digital Leadership & Change</b> – Führen in Transformation, Veränderungsprozesse steuern.</li>
-            <li><b>Führungskommunikation & Motivation</b> – klare Ziele, Feedback, Coaching-Gespräche.</li>
-            <li><b>Organisation & agile Methoden</b> – Rollen, Rituale, Kanban/Scrum-Elemente pragmatisch.</li>
-            <li><b>Selbst- & Zeitmanagement</b> – Priorisierung, Resilienz, produktive Routinen.</li>
-          </ul>
-        </div>
-
-        <!-- IHK Direktvertrieb -->
-        <div class="card">
-          <h3>IHK: Vertriebsprofi & Führungskraft im Direktvertrieb</h3>
-          <p class="muted"><b>92 Lehrgangsstunden</b> · abgeschlossen</p>
-          <ul style="margin:0 0 0 18px">
-            <li>Teamaufbau & Coaching (Onboarding, Shadowing, Zielvereinbarungen).</li>
-            <li>Digitale Verkaufskonzepte & Kundengewinnung.</li>
-            <li>KPI-Steuerung, Pipeline & Routinen für nachhaltige Aktivität.</li>
-            <li>Rahmen & Grundlagen im Direktvertrieb.</li>
-          </ul>
-        </div>
-
-        <!-- Insights -->
-        <div class="card">
-          <h3>Insights Discovery (Farben-Modell)</h3>
-          <p class="muted">Anwendung in Praxis</p>
-          <p>Kenntnisse im Farben-Modell zur besseren Kommunikation, Rollenklarheit und Konfliktprävention.
-             Einsatz in 1:1-Gesprächen, Team-Workshops und Feedback-Formaten (ohne Schubladisieren).</p>
-        </div>
-
-        <!-- Praxis: proWIN -->
-        <div class="card">
-          <h3>Praxis: Teamaufbau & Coaching (proWIN)</h3>
-          <ul style="margin:0 0 0 18px">
-            <li><b>75</b> rekrutiert, davon <b>15</b> aktiv gecoacht.</li>
-            <li><b>+47 %</b> Umsatz im Team während Corona durch klare Routinen & digitale Formate.</li>
-            <li>Angenehme Hartnäckigkeit: Dranbleiben ohne Druck, verbindliche Follow-ups.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- REFERENZEN -->
-    <section id="references" class="section">
-      <h2>Referenzen (aus Arbeitszeugnissen)</h2>
-      <div class="reviews">
-        <div class="review">
-          <h4>Optimas Maschinenfabrik</h4>
-          <div class="stars">★★★★★</div>
-          <p>„Frau Schmidt zeichnete sich durch eine äußerst strukturierte und zuverlässige Arbeitsweise aus. Besonders ihre Optimierungen in der Schnittstellenkommunikation führten zu spürbaren Effizienzsteigerungen.“</p>
-        </div>
-        <div class="review">
-          <h4>UPM Nordland Papier</h4>
-          <div class="stars">★★★★★</div>
-          <p>„Sie bearbeitete täglich ein hohes Reklamationsvolumen mit großer Sorgfalt und Genauigkeit. Durch ihre Excel-Lösungen verringerte sie Fehlerquoten und beschleunigte die Abläufe merklich.“</p>
-        </div>
-        <div class="review">
-          <h4>Fresena Flug GmbH</h4>
-          <div class="stars">★★★★★</div>
-          <p>„Frau Schmidt überzeugte durch ihr Organisationstalent in der Einsatz- und Flugplanung. Ihre Abstimmung mit Piloten, Kunden und Behörden war stets präzise und zuverlässig.“</p>
-        </div>
-        <div class="review">
-          <h4>Apollonia S.A.</h4>
-          <div class="stars">★★★★★</div>
-          <p>„Sie bewältigte ihre vielfältigen Verwaltungs- und Buchhaltungsaufgaben stets mit Genauigkeit und Verantwortungsbewusstsein. Ihre strukturierte Arbeitsweise war für die Einrichtung von großem Wert.“</p>
-        </div>
-        <div class="review">
-          <h4>proWIN · Teamleitung</h4>
-          <div class="stars">★★★★★</div>
-          <p>„Als Teamleiterin rekrutierte und coachte Frau Schmidt 75 Partner, von denen 15 aktiv im Vertrieb blieben. In der Corona-Zeit steigerte sie den Umsatz ihres Teams um +47 % – ein Beleg für ihre Führungsstärke und Innovationskraft.“</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- UNTERLAGEN -->
-    <section id="downloads" class="section">
-      <h2>Unterlagen</h2>
-      <div class="downloads">
-        <div class="card"><h3>Lebenslauf (Führungskraft)</h3><a class="btn primary" href="Natacha_Schmidt_CV_FK.pdf">Download</a></div>
-        <div class="card"><h3>Lebenslauf (Zusammenfassung)</h3><a class="btn primary" href="Natacha_Schmidt_Lebenslauf_Zusammenfassung.pdf">Download</a></div>
-        <div class="card"><h3>Arbeitszeugnisse</h3><a class="btn primary" href="Natacha_Schmidt_Arbeitszeugnisse.pdf">Download</a></div>
-        <div class="card"><h3>Zertifikate – Unternehmensführung</h3><a class="btn primary" href="Unternehmensfuehrung_Zertifikat.pdf">Download</a></div>
-        <div class="card"><h3>Zertifikate – Advanced Leadership</h3><a class="btn primary" href="Advanced_Leadership_1.pdf">Download</a></div>
-        <div class="card"><h3>Zertifikate – Diplom & IHK</h3><a class="btn primary" href="Natacha_Schmidt_Diplom_IHK_Zertifikat.pdf">Download</a></div>
-        <div class="card"><h3>Zertifikate – Transportrecht & Excel</h3><a class="btn primary" href="Natacha_Schmidt_IHK_Transportrecht_Excel.pdf">Download</a></div>
-      </div>
-    </section>
-
-    <!-- KONTAKT -->
-    <section id="kontakt" class="section">
-      <h2>Kontakt</h2>
-      <div class="card" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
-        <a class="btn primary" href="mailto:natacha.schmidt.lux@gmail.com">E-Mail senden</a>
-        <a class="btn" href="tel:015783922128">☎ 0157 83922128</a>
-        <span class="muted">Stand: September 2025</span>
-      </div>
-    </section>
-
-    <!-- DATENSCHUTZ -->
-    <section id="datenschutz" class="section">
-      <h2>Datenschutz</h2>
-      <p class="muted">
-        Diese private Bewerbungs-Seite nutzt Google Analytics (GA4), um Aufrufe und Downloads anonymisiert zu messen.
-        Es werden keine personenbezogenen Daten erfasst. IPs werden anonymisiert.
-      </p>
-      <ul>
-        <li>Betreiber: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.</li>
-        <li>Zweck: Reichweitenmessung (z. B. Aufrufe, PDF-Downloads).</li>
-        <li>Rechtsgrundlage: Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).</li>
-        <li>Widerruf: <a href="#" id="cookie-reset">Cookie-Einstellungen ändern</a>.</li>
-      </ul>
-    </section>
-  </main>
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Telefon: <a href="tel:+4915783922128">0157 83922128</a><br>
+       E-Mail: <a href="mailto:natacha.schmidt.lux@gmail.com">natacha.schmidt.lux@gmail.com</a></p>
+  </section>
 
   <footer>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
-      <div>© 2025 Natacha Schmidt. Alle Rechte vorbehalten.</div>
-      <div class="muted">Private Landingpage, ausschließlich für Bewerbungszwecke.</div>
+    <div class="wrap">
+      <small>© 2025 Natacha Schmidt. Alle Rechte vorbehalten.</small>
+      <div><a href="#">Impressum</a> | <a href="#">Datenschutz</a></div>
     </div>
   </footer>
+
+  <!-- DSGVO Script -->
+  <script>
+    function acceptCookies() {
+      document.getElementById('cookie-banner').style.display = 'none';
+      document.getElementById('cookie-overlay').style.display = 'none';
+      localStorage.setItem('cookiesAccepted', 'true');
+      var gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-2KBK6XLTW5";
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2KBK6XLTW5');
+    }
+    function declineCookies() {
+      document.getElementById('cookie-banner').style.display = 'none';
+      document.getElementById('cookie-overlay').style.display = 'none';
+      localStorage.setItem('cookiesAccepted', 'false');
+    }
+    window.onload = function() {
+      if (localStorage.getItem('cookiesAccepted') === 'true') {
+        document.getElementById('cookie-banner').style.display = 'none';
+        document.getElementById('cookie-overlay').style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
-
-
