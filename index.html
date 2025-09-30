@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Natacha Schmidt – Teamleitung & Koordination</title>
   <meta name="description" content="Natacha Schmidt – Teamleitung/Koordination, Prozessstabilität, Mitarbeiterentwicklung. 19 Jahre kfm. Praxis.">
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
   <style>
     :root{
       --ink:#111; --muted:#666; --bg:#fff;
-      --accent:#4f46e5; --accent-weak: rgba(79,70,229,.16);
-      --card:#f8f8ff; --ring: rgba(17,17,17,.06);
-      --shadow: 0 8px 28px rgba(0,0,0,.08);
-      --r:16px; --wrap:1024px;
+      --accent:#4f46e5; --accent-weak:rgba(79,70,229,.16);
+      --ring:rgba(17,17,17,.06); --shadow:0 8px 28px rgba(0,0,0,.08);
+      --wrap:1024px; --radius:14px;
     }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial}
+    html,body{margin:0;background:var(--bg);color:var(--ink);
+      font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial}
     img{max-width:100%;display:block}
     a{color:var(--accent);text-decoration:none}
     a:hover{filter:brightness(1.05)}
@@ -24,11 +24,24 @@
     h2{font-size: clamp(20px,2.2vw,28px);line-height:1.2;margin:0 0 12px}
     h3{margin:0 0 10px}
     .muted{color:var(--muted)}
-    /* ===== HERO ===== */
-    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap: clamp(16px,2.5vw,28px);align-items:start}
+    .wrap > * + *{margin-top:14px}
+
+    /* Top-Leiste */
+    .topbar{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--ring);
+      box-shadow:0 6px 18px rgba(0,0,0,.04)}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+    .brand{font-weight:900}
+    .nav{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .nav a{padding:.45rem .6rem;border-radius:10px}
+    .nav a:hover{background:var(--accent-weak)}
+    .cv-btn{display:inline-block;background:var(--accent);color:#fff;padding:.55rem .9rem;border-radius:10px;font-weight:700;
+      box-shadow:0 6px 18px rgba(79,70,229,.25)}
+
+    /* Hero */
+    .hero{padding-top: clamp(20px,3.5vw,40px)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(16px,2.5vw,28px);align-items:start}
     @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
     .pitch{font-size: clamp(15px,1.3vw,17px);margin:0 0 14px}
-    .fine{color:var(--muted)}
     .bullets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;list-style:none;margin:14px 0 16px;padding:0}
     @media (max-width:740px){.bullets{grid-template-columns:1fr}}
     .bullets li{display:flex;gap:10px;background:#fff;border:1px solid var(--ring);border-radius:12px;padding:12px}
@@ -39,237 +52,161 @@
     .kpi .v{font-weight:900;color:var(--accent);font-size:1.25rem}
     .kpi .l{color:var(--muted);font-weight:600}
     .portrait-wrap{display:flex;justify-content:center;align-items:flex-start}
-    .portrait{width: clamp(180px,28vw,280px);height:auto;border-radius:50%;box-shadow:0 12px 36px rgba(79,70,229,.25);border:6px solid #fff}
-    .search-card{background:linear-gradient(180deg,#fff,var(--card));border:1px solid var(--accent-weak);
-      border-radius:var(--r);padding:18px;box-shadow:var(--shadow);margin-top:18px}
-    .search-title{font-weight:700;margin-bottom:6px}
-    .search-hl{font-size: clamp(17px,1.7vw,21px);font-weight:800;margin-bottom:8px}
+    .portrait{width:clamp(180px,28vw,280px);border-radius:50%;box-shadow:0 12px 36px rgba(79,70,229,.25);border:6px solid #fff}
+
+    /* „Ich suche“ */
+    .search-card{background:linear-gradient(180deg,#fff,#f8f8ff);border:1px solid var(--accent-weak);
+      border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);margin-top:18px}
+    .search-hl{font-size:clamp(17px,1.7vw,21px);font-weight:800;margin-bottom:8px}
     .pill{display:inline-block;margin-left:.4rem;padding:.18rem .5rem;border-radius:999px;background:var(--accent-weak);font-weight:700}
     .tags{display:flex;flex-wrap:wrap;gap:8px}
     .tag{display:inline-block;padding:.35rem .6rem;background:#fff;border:1px solid var(--accent-weak);border-radius:999px;font-size:.95rem}
-    /* ===== Cards / Grids ===== */
+
+    /* Karten & Grids */
     .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
     @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
     .card{background:#fff;border:1px solid var(--ring);border-radius:12px;padding:16px;box-shadow:0 6px 20px rgba(0,0,0,.05)}
+
+    /* Unterlagen */
     .docs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
     @media (max-width:900px){.docs-grid{grid-template-columns:1fr}}
     .btn{display:inline-block;padding:.65rem 1rem;border-radius:10px;font-weight:700}
     .primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(79,70,229,.25)}
-    /* ===== Cookie Banner ===== */
+
+    /* Referenzen */
+    .quote{font-style:italic}
+    .ref-note{background:#fff;border:1px dashed var(--accent-weak);border-radius:12px;padding:12px}
+
+    /* Cookie */
     .cookie-banner{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:9999;
       background:#fff;border:1px solid var(--ring);border-radius:12px;box-shadow:var(--shadow);padding:14px 16px;max-width:92vw}
     .cookie-banner p{margin:0 0 10px}
     .cookie-actions{display:flex;gap:8px;justify-content:flex-end}
-    @media (max-width:560px){.cookie-actions{justify-content:space-between}}
-    .wrap > * + *{margin-top:14px}
   </style>
 </head>
 <body>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <!-- left -->
-      <div>
-        <h1>Ich stabilisiere Abläufe – und entwickle Teams.</h1>
+<!-- Top-Leiste -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">Natacha Schmidt</div>
+    <nav class="nav">
+      <a href="#fuehrung">Führung</a>
+      <a href="#hard-skills">Hard Skills</a>
+      <a href="#soft-skills">Soft Skills</a>
+      <a href="#unterlagen">Unterlagen</a>
+      <a href="#referenzen">Referenzen</a>
+    </nav>
+    <a class="cv-btn" href="Natacha%20Schmidt%20CV.pdf" target="_blank">CV ansehen</a>
+  </div>
+</header>
 
-        <p class="pitch">
-          Teams arbeiten motivierter und Prozesse laufen einfacher, weil ich Strukturen schaffe, die Orientierung geben,
-          und Menschen so führe, dass sie ihre Stärken einbringen können.
-          Unternehmen gewinnen dadurch stabile Abläufe und verlässliche Ergebnisse – belegt durch +47 % Umsatzsteigerung
-          und optimierte Abläufe mit spürbaren Zeitgewinnen.
-        </p>
-
-        <ul class="bullets" aria-label="Schwerpunkte">
-          <li><span class="ico">👥</span><div><strong>Teamführung & Coaching</strong><br>Leitung kleiner Teams bis 15, 1:1-Feedback, klare Rollen & Ziele</div></li>
-          <li><span class="ico">⚙️</span><div><strong>Prozessstabilität</strong><br>Schnittstellen vereinfachen, Engpässe beseitigen, verlässliche Routinen</div></li>
-          <li><span class="ico">📈</span><div><strong>Ergebnisse mit KPIs</strong><br>+47 % Umsatzsteigerung, Zeitgewinne, geringere Fehlerquoten</div></li>
-          <li><span class="ico">🧭</span><div><strong>New Work & Insights</strong><br>Bedürfnisorientiert führen, Selbstorganisation stärken, Vertrauen</div></li>
-        </ul>
-
-        <div class="kpis">
-          <div class="kpi"><div class="v">75</div><div class="l">rekrutiert</div></div>
-          <div class="kpi"><div class="v">15</div><div class="l">aktiv gecoacht</div></div>
-          <div class="kpi"><div class="v">+47 %</div><div class="l">Umsatzsteigerung</div></div>
-          <div class="kpi"><div class="v">19 Jahre</div><div class="l">kfm. Praxis</div></div>
-        </div>
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Ich stabilisiere Abläufe – und entwickle Teams.</h1>
+      <p class="pitch">
+        Teams arbeiten motivierter und Prozesse laufen einfacher, weil ich Strukturen schaffe, die Orientierung geben,
+        und Menschen so führe, dass sie ihre Stärken einbringen können.
+        Unternehmen gewinnen dadurch stabile Abläufe und verlässliche Ergebnisse – belegt durch +47 % Umsatzsteigerung
+        und optimierte Abläufe mit spürbaren Zeitgewinnen.
+      </p>
+      <ul class="bullets">
+        <li><span class="ico">👥</span> Teamführung & Coaching – Leitung kleiner Teams bis 15, Feedback, Rollen & Ziele</li>
+        <li><span class="ico">⚙️</span> Prozessstabilität – Schnittstellen vereinfachen, Routinen etablieren</li>
+        <li><span class="ico">📈</span> Ergebnisse mit KPIs – +47 % Umsatz, Zeitgewinne, geringere Fehlerquoten</li>
+        <li><span class="ico">🧭</span> New Work & Insights – Bedürfnisorientiert führen, Selbstorganisation stärken</li>
+      </ul>
+      <div class="kpis">
+        <div class="kpi"><div class="v">75</div><div class="l">rekrutiert</div></div>
+        <div class="kpi"><div class="v">15</div><div class="l">aktiv gecoacht</div></div>
+        <div class="kpi"><div class="v">+47 %</div><div class="l">Umsatzsteigerung</div></div>
+        <div class="kpi"><div class="v">19 Jahre</div><div class="l">kfm. Praxis</div></div>
       </div>
-
-      <!-- right -->
-      <div class="portrait-wrap">
+    </div>
+    <div class="portrait-wrap">
       <img class="portrait" src="foto.jpeg" alt="Natacha Schmidt">
-      </div>
-    </div>
-
-    <div class="wrap">
-      <div class="search-card">
-        <div class="search-title">Ich suche</div>
-        <div class="search-hl">Teamleitung / Teamkoordination <span class="pill">bis 15 Mitarbeitende</span></div>
-        <div class="tags">
-          <span class="tag">Vollzeit</span>
-          <span class="tag">Hybrid / On-Site</span>
-          <span class="tag">Servicequalität</span>
-          <span class="tag">Prozessstabilität</span>
-          <span class="tag">Mitarbeiterentwicklung</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FÜHRUNG ===== -->
-  <section id="fuehrung">
-  <div class="wrap">
-    <h2>Führung</h2>
-    <div class="grid-2">
-      <!-- Box 1 -->
-      <div class="card">
-        <h3>Führung 4.0 (IU Akademie)</h3>
-        <p class="muted">Hochschulzertifikat · 4 Module</p>
-        <ul>
-          <li><strong>Digital Leadership & Change</strong> – Führen in Transformation, Veränderungsprozesse steuern.</li>
-          <li><strong>Führungskommunikation & Motivation</strong> – klare Ziele, Feedback, Coaching-Gespräche.</li>
-          <li><strong>Organisation & agile Methoden</strong> – Rollen, Rituale, Kanban/Scrum-Elemente pragmatisch.</li>
-          <li><strong>Selbst- & Zeitmanagement</strong> – Priorisierung, Resilienz, produktive Routinen.</li>
-        </ul>
-      </div>
-
-      <!-- Box 2 -->
-      <div class="card">
-        <h3>IHK: Vertriebsprofi & Führungskraft im Direktvertrieb</h3>
-        <p class="muted">92 Lehrgangsstunden · abgeschlossen</p>
-        <ul>
-          <li>Teamaufbau & Coaching (Onboarding, Shadowing, Zielvereinbarungen).</li>
-          <li>Digitale Verkaufskonzepte & Kundengewinnung.</li>
-          <li>KPI-Steuerung, Pipeline & Routinen für nachhaltige Aktivität.</li>
-          <li>Rahmen & Grundlagen im Direktvertrieb.</li>
-        </ul>
-      </div>
-
-      <!-- Box 3 -->
-      <div class="card">
-        <h3>Insights-Führung & Coaching</h3>
-        <p class="muted">Farben-Modell · Persönlichkeitsorientierte Führung</p>
-        <ul>
-          <li>Bedürfnisorientierte Führung mit Insights Discovery.</li>
-          <li>Individuelle Teamkommunikation durch Farbprofile.</li>
-          <li>Förderung von Motivation & Zusammenarbeit.</li>
-        </ul>
-      </div>
-
-      <!-- Box 4 -->
-      <div class="card">
-        <h3>Seminare & Praxis</h3>
-        <p class="muted">Ergänzende Führungs-Trainings</p>
-        <ul>
-          <li>Kommunikation, Rollenklarheit und Konfliktprävention – eingesetzt in 1:1-Gesprächen und Workshops.</li>
-          <li>Feedback-Formate & Mitarbeiterentwicklung.</li>
-          <li>Selbst- & Zeitmanagement – Priorisierung, Resilienz, Routinen.</li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
 
-
-  <!-- ===== HARD SKILLS ===== -->
-  <section id="hard-skills">
-    <div class="wrap">
-      <h2>Hard Skills</h2>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Prozesse & Tools</h3>
-          <ul>
-            <li>Exportkoordination (ATLAS, IHK-Zertifikate)</li>
-            <li>SAP · CRM-Pflege</li>
-            <li>Excel (Automatisierung, Pivot, Formeln)</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Organisation</h3>
-          <ul>
-            <li>Disposition & Koordination Auslandseinsätze</li>
-            <li>Schnittstellenmanagement</li>
-            <li>Qualitäts- und Reklamationsmanagement</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SOFT SKILLS ===== -->
-  <section id="soft-skills">
-    <div class="wrap">
-      <h2>Soft Skills</h2>
-      <div class="grid-2">
-        <div class="card">
-          <ul>
-            <li>Führung & Coaching</li>
-            <li>Kommunikationsstärke</li>
-            <li>Konfliktmanagement</li>
-          </ul>
-        </div>
-        <div class="card">
-          <ul>
-            <li>Lösungsorientierung & Belastbarkeit</li>
-            <li>Struktur & Eigenverantwortung</li>
-            <li>Bedürfnisorientierte Führung (Insights)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== UNTERLAGEN ===== -->
-  <section id="unterlagen">
-    <div class="wrap">
-      <h2>Unterlagen</h2>
-      <div class="docs-grid">
-        <div class="card doc-card">
-          <h3>Lebenslauf (Führungskraft)</h3>
-          <a class="btn primary" href="Natacha%20Schmidt%20CV.pdf" target="_blank">Im Browser ansehen</a>
-        </div>
-        <div class="card doc-card">
-          <h3>Arbeitszeugnisse</h3>
-          <a class="btn primary" href="Natacha_Schmidt_Arbeitszeugnisse.pdf" target="_blank">Im Browser ansehen</a>
-        </div>
-        <div class="card doc-card">
-          <h3>Zertifikate – Unternehmensführung</h3>
-          <a class="btn primary" href="Unternehmensfuehrung_Zertifikat.pdf" target="_blank">Im Browser ansehen</a>
-        </div>
-        <div class="card doc-card">
-          <h3>Zertifikate – Advanced Leadership</h3>
-          <a class="btn primary" href="Advanced_Leadership_1.pdf" target="_blank">Im Browser ansehen</a>
-        </div>
-        <div class="card doc-card">
-          <h3>Zertifikate – Diplom & IHK</h3>
-          <a class="btn primary" href="Natacha_Schmidt_Diplom_IHK_Zertifikat.pdf" target="_blank">Im Browser ansehen</a>
-        </div>
-        <div class="card doc-card">
-          <h3>Zertifikate – Transportrecht & Excel</h3>
-          <a class="btn primary" href="Natacha_Schmidt_IHK_Transportrecht_Excel.pdf" target="_blank">Im Browser ansehen</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== COOKIE BANNER ===== -->
-  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie-Hinweis">
-    <p>Diese Website verwendet Cookies für eine bessere Darstellung. <a href="#impressum">Mehr erfahren</a>.</p>
-    <div class="cookie-actions">
-      <button class="btn" onclick="hideCookie()">Ablehnen</button>
-      <button class="btn primary" onclick="acceptCookie()">Einverstanden</button>
+<!-- Führung (4 Karten) -->
+<section id="fuehrung">
+  <div class="wrap">
+    <h2>Führung</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Führung 4.0 (IU Akademie)</h3><p class="muted">Hochschulzertifikat · 4 Module</p></div>
+      <div class="card"><h3>IHK: Vertriebsprofi & Führungskraft</h3><p class="muted">92 Std. · abgeschlossen</p></div>
+      <div class="card"><h3>Insights-Führung & Coaching</h3><p class="muted">Farben-Modell · persönlichkeitsorientiert</p></div>
+      <div class="card"><h3>Seminare & Praxis</h3><p class="muted">Kommunikation, Konfliktprävention, Zeitmanagement</p></div>
     </div>
   </div>
+</section>
 
-  <script>
-    const KEY='ns_cookie_ok';
-    function hideCookie(){document.getElementById('cookieBanner').style.display='none'}
-    function acceptCookie(){localStorage.setItem(KEY,'1');hideCookie()}
-    (function(){ if(localStorage.getItem(KEY)==='1') hideCookie(); })();
-  </script>
+<!-- Hard Skills -->
+<section id="hard-skills">
+  <div class="wrap">
+    <h2>Hard Skills</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Prozesse & Tools</h3><ul><li>Exportkoordination (ATLAS, IHK)</li><li>SAP · CRM</li><li>Excel (Automatisierung, Pivot)</li></ul></div>
+      <div class="card"><h3>Organisation</h3><ul><li>Disposition Auslandseinsätze</li><li>Schnittstellenmanagement</li><li>Reklamationsmanagement</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- Soft Skills -->
+<section id="soft-skills">
+  <div class="wrap">
+    <h2>Soft Skills</h2>
+    <div class="grid-2">
+      <div class="card"><ul><li>Führung & Coaching</li><li>Kommunikationsstärke</li><li>Konfliktmanagement</li></ul></div>
+      <div class="card"><ul><li>Lösungsorientierung</li><li>Struktur & Eigenverantwortung</li><li>Insights-Führung</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- Unterlagen -->
+<section id="unterlagen">
+  <div class="wrap">
+    <h2>Unterlagen</h2>
+    <div class="docs-grid">
+      <div class="card"><h3>Lebenslauf</h3><a class="btn primary" href="Natacha%20Schmidt%20CV.pdf" target="_blank">Im Browser ansehen</a></div>
+      <div class="card"><h3>Arbeitszeugnisse</h3><a class="btn primary" href="Natacha_Schmidt_Arbeitszeugnisse.pdf" target="_blank">Im Browser ansehen</a></div>
+      <div class="card"><h3>Zertifikat Unternehmensführung</h3><a class="btn primary" href="Unternehmensfuehrung_Zertifikat.pdf" target="_blank">Im Browser ansehen</a></div>
+      <div class="card"><h3>Zertifikat Advanced Leadership</h3><a class="btn primary" href="Advanced_Leadership_1.pdf" target="_blank">Im Browser ansehen</a></div>
+      <div class="card"><h3>Zertifikat Diplom & IHK</h3><a class="btn primary" href="Natacha_Schmidt_Diplom_IHK_Zertifikat.pdf" target="_blank">Im Browser ansehen</a></div>
+      <div class="card"><h3>Zertifikat Transportrecht & Excel</h3><a class="btn primary" href="Natacha_Schmidt_IHK_Transportrecht_Excel.pdf" target="_blank">Im Browser ansehen</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Referenzen -->
+<section id="referenzen">
+  <div class="wrap">
+    <h2>Referenzen</h2>
+    <div class="grid-2">
+      <div class="card"><p class="quote">„Zuverlässig, strukturiert, mit sicherem Blick für Abläufe.“</p><p class="muted">– Aus Arbeitszeugnissen</p></div>
+      <div class="card ref-note"><p>Alle Referenzen findest du in meinen Arbeitszeugnissen.</p><p><a class="btn primary" href="Natacha_Schmidt_Arbeitszeugnisse.pdf" target="_blank">Arbeitszeugnisse ansehen</a></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Cookie-Banner -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>Diese Website verwendet Cookies für eine bessere Darstellung.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-light" onclick="hideCookie()">Ablehnen</button>
+    <button class="btn primary" onclick="acceptCookie()">Einverstanden</button>
+  </div>
+</div>
+<script>
+const KEY='ns_cookie_ok';
+function hideCookie(){document.getElementById('cookieBanner').style.display='none'}
+function acceptCookie(){localStorage.setItem(KEY,'1');hideCookie()}
+(function(){if(localStorage.getItem(KEY)==='1')hideCookie()})();
+</script>
+
 </body>
 </html>
-
-
-
 
