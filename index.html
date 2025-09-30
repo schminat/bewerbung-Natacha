@@ -101,31 +101,92 @@
     </div>
   </header>
 
-  <main class="container">
-    <!-- HERO -->
-    <section class="hero">
-      <div>
-        <span class="badge">Bewerbung · Recruiting / Office / Koordination</span>
-        <h1>Ich stabilisiere Abläufe – und entwickle Menschen.</h1>
-        <p class="muted">19 Jahre kaufmännische Praxis · Recruiting & Active Sourcing · Prozess- & Exportkoordination · Leadership 4.0</p>
-        <p>Ich sehe Führung nicht als Beförderung, sondern als Werkzeug: Mit klarer Kommunikation und Struktur ermögliche ich, dass Teams wachsen
-        und Unternehmen stabil laufen. Erfahrung von Rekrutierung & Teamaufbau (<b>75</b> rekrutiert, <b>15</b> aktiv gecoacht) über
-        Exportkoordination bis Prozessoptimierung.</p>
+ <!-- ===== BEGIN: Ersatz für den Bereich OBERHALB von "Führung" ===== -->
+<section class="ns-hero">
+  <div class="ns-wrap">
+    <h1>Ich stabilisiere Abläufe – und entwickle Teams.</h1>
 
-        <div class="card" style="margin-top:12px">
-          <b>Ich suche</b>: Recruiting / Active Sourcing · Office-Management · Teamkoordination
-          <span class="pill" style="margin-left:8px">Vollzeit</span>
-          <span class="pill">kleine Teams bis ~15</span>
-          <div class="muted" style="margin-top:6px">Fokus: Servicequalität · Prozessstabilität · Mitarbeiterentwicklung</div>
-        </div>
+    <p class="ns-pitch">
+      <strong>Unternehmensnutzen zuerst:</strong> Teams arbeiten motivierter, Prozesse laufen einfacher –
+      und Unternehmen profitieren von messbaren Erfolgen, von Umsatzwachstum bis zu stabilen Strukturen im Alltag.
+      <br><span class="ns-fine">Mein Führungsansatz verbindet Klarheit und Empathie.</span>
+    </p>
 
-        <div class="kpis">
-          <div class="kpi"><div class="v">75</div><div class="muted" style="font-size:12px">rekrutiert</div></div>
-          <div class="kpi"><div class="v">15</div><div class="muted" style="font-size:12px">aktiv gecoacht</div></div>
-          <div class="kpi"><div class="v">200+/Tag</div><div class="muted" style="font-size:12px">Calls (Sykes)</div></div>
-          <div class="kpi"><div class="v">19 Jahre</div><div class="muted" style="font-size:12px">kfm. Praxis</div></div>
-        </div>
+    <!-- Bulletpoints -->
+    <ul class="ns-bullets" aria-label="Schwerpunkte">
+      <li>
+        <span class="ns-ico" aria-hidden="true">👥</span>
+        <div><strong>Teamführung & Coaching</strong><br>Leitung kleiner Teams bis 15, 1:1-Feedback, klare Rollen & Ziele</div>
+      </li>
+      <li>
+        <span class="ns-ico" aria-hidden="true">⚙️</span>
+        <div><strong>Prozessstabilität</strong><br>Schnittstellen vereinfachen, Engpässe beseitigen, verlässliche Routinen</div>
+      </li>
+      <li>
+        <span class="ns-ico" aria-hidden="true">📈</span>
+        <div><strong>Ergebnisse mit KPIs</strong><br>+47 % Umsatzsteigerung, Zeitgewinne, geringere Fehlerquoten</div>
+      </li>
+      <li>
+        <span class="ns-ico" aria-hidden="true">🧭</span>
+        <div><strong>New Work & Insights</strong><br>Bedürfnisorientiert führen, Selbstorganisation stärken, Vertrauen</div>
+      </li>
+    </ul>
+
+    <!-- Ich suche -->
+    <div class="ns-search" role="note" aria-label="Ich suche">
+      <div class="ns-search-title">Ich suche</div>
+      <div class="ns-search-hl">Teamleitung / Teamkoordination <span class="ns-pill">bis 15 Mitarbeitende</span></div>
+      <div class="ns-tags">
+        <span class="ns-tag">Vollzeit</span>
+        <span class="ns-tag">Hybrid / On-Site</span>
+        <span class="ns-tag">Servicequalität</span>
+        <span class="ns-tag">Prozessstabilität</span>
+        <span class="ns-tag">Mitarbeiterentwicklung</span>
       </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="ns-kpis">
+      <div class="ns-kpi"><div class="ns-kpi-v">75</div><div class="ns-kpi-l">rekrutiert</div></div>
+      <div class="ns-kpi"><div class="ns-kpi-v">15</div><div class="ns-kpi-l">aktiv gecoacht</div></div>
+      <div class="ns-kpi"><div class="ns-kpi-v">+47 %</div><div class="ns-kpi-l">Umsatzsteigerung</div></div>
+      <div class="ns-kpi"><div class="ns-kpi-v">19 Jahre</div><div class="ns-kpi-l">kfm. Praxis</div></div>
+    </div>
+
+    <!-- CV-Download -->
+    <p class="ns-cv">
+      <a class="ns-btn" href="Natacha%20Schmidt%20CV.pdf" download>Lebenslauf: Natacha Schmidt CV.pdf</a>
+    </p>
+  </div>
+</section>
+<!-- ===== END: Ersatzbereich; alles UNTERHALB (ab "Führung") bleibt unverändert ===== -->
+
+<style>
+  .ns-hero{--ink:#111;--muted:#666;--accent:#4f46e5;--ring:rgba(79,70,229,.16);--card:#f7f7ff;--shadow:0 8px 28px rgba(0,0,0,.08);--r:16px;background:#fff;padding:clamp(24px,4vw,48px) 0}
+  .ns-wrap{max-width:1024px;margin:0 auto;padding:0 20px}
+  .ns-hero h1{font-size:clamp(28px,3.6vw,48px);line-height:1.12;margin:0 0 12px;color:var(--ink)}
+  .ns-pitch{font-size:clamp(16px,1.4vw,18px);margin:0 0 16px}
+  .ns-fine{color:var(--muted)}
+  .ns-bullets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:16px 0 18px}
+  @media (max-width:720px){.ns-bullets{grid-template-columns:1fr}}
+  .ns-bullets li{display:flex;gap:10px;background:#fff;border:1px solid var(--ring);border-radius:12px;padding:12px}
+  .ns-ico{font-size:1.2rem;line-height:1;margin-top:2px}
+  .ns-search{background:linear-gradient(180deg,#fff,var(--card));border:1px solid var(--ring);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);margin:0 0 18px}
+  .ns-search-title{font-weight:700;margin-bottom:6px}
+  .ns-search-hl{font-size:clamp(18px,1.8vw,22px);font-weight:800;margin-bottom:8px}
+  .ns-pill{display:inline-block;margin-left:.4rem;padding:.18rem .5rem;border-radius:999px;background:var(--ring);font-weight:700}
+  .ns-tags{display:flex;flex-wrap:wrap;gap:8px}
+  .ns-tag{display:inline-block;padding:.35rem .6rem;background:#fff;border:1px solid var(--ring);border-radius:999px;font-size:.95rem}
+  .ns-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+  @media (max-width:720px){.ns-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .ns-kpi{background:#fff;border:1px solid var(--ring);border-radius:12px;padding:14px;text-align:center}
+  .ns-kpi-v{font-size:1.35rem;font-weight:900;color:var(--accent)}
+  .ns-kpi-l{color:var(--muted);font-weight:600}
+  .ns-cv{margin:16px 0 0}
+  .ns-btn{display:inline-block;text-decoration:none;background:var(--accent);color:#fff;padding:.65rem 1rem;border-radius:10px;font-weight:700;box-shadow:0 6px 18px rgba(79,70,229,.25)}
+  .ns-btn:hover{filter:brightness(1.05)}
+</style>
+
       <div class="photo">
         <div class="circle">
           <img src="foto.jpeg" alt="Profilfoto Natacha Schmidt" style="width:100%;height:100%;object-fit:cover">
@@ -302,8 +363,8 @@
     <section id="downloads" class="section">
       <h2>Unterlagen</h2>
       <div class="downloads">
-        <div class="card"><h3>Lebenslauf (Führungskraft)</h3><a class="btn primary" href="Natacha_Schmidt_CV_FK.pdf">Download</a></div>
-        <div class="card"><h3>Lebenslauf (Zusammenfassung)</h3><a class="btn primary" href="Natacha_Schmidt_Lebenslauf_Zusammenfassung.pdf">Download</a></div>
+        <div class="card"><h3>Lebenslauf (Führungskraft)</h3><a class="btn primary" href="Natacha%20Schmidt%20CV.pdf" target="_blank">Im Browser ansehen</a>
+</div>
         <div class="card"><h3>Arbeitszeugnisse</h3><a class="btn primary" href="Natacha_Schmidt_Arbeitszeugnisse.pdf">Download</a></div>
         <div class="card"><h3>Zertifikate – Unternehmensführung</h3><a class="btn primary" href="Unternehmensfuehrung_Zertifikat.pdf">Download</a></div>
         <div class="card"><h3>Zertifikate – Advanced Leadership</h3><a class="btn primary" href="Advanced_Leadership_1.pdf">Download</a></div>
@@ -380,4 +441,5 @@
   </script>
 </body>
 </html>
+
 
