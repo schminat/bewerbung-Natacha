@@ -29,16 +29,13 @@
     /* Top-Leiste */
     .topbar{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--ring);
       box-shadow:0 6px 18px rgba(0,0,0,.04)}
-    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
-    .brand{font-weight:900}
+    .topbar-inner{display:flex;justify-content:space-between;align-items:center;padding:10px 0}
+    .brand{font-weight:900;font-size: clamp(22px, 2.6vw, 28px)}
     .nav{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
     .nav a{padding:.45rem .6rem;border-radius:10px}
     .nav a:hover{background:var(--accent-weak)}
-    .cv-btn{display:inline-block;background:var(--accent);color:#fff;padding:.55rem .9rem;border-radius:10px;font-weight:700;
-      box-shadow:0 6px 18px rgba(79,70,229,.25)}
 
     /* Hero */
-    .hero{padding-top: clamp(20px,3.5vw,40px)}
     .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(16px,2.5vw,28px);align-items:start}
     @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
     .pitch{font-size: clamp(15px,1.3vw,17px);margin:0 0 14px}
@@ -54,14 +51,6 @@
     .portrait-wrap{display:flex;justify-content:center;align-items:flex-start}
     .portrait{width:clamp(180px,28vw,280px);border-radius:50%;box-shadow:0 12px 36px rgba(79,70,229,.25);border:6px solid #fff}
 
-    /* „Ich suche“ */
-    .search-card{background:linear-gradient(180deg,#fff,#f8f8ff);border:1px solid var(--accent-weak);
-      border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);margin-top:18px}
-    .search-hl{font-size:clamp(17px,1.7vw,21px);font-weight:800;margin-bottom:8px}
-    .pill{display:inline-block;margin-left:.4rem;padding:.18rem .5rem;border-radius:999px;background:var(--accent-weak);font-weight:700}
-    .tags{display:flex;flex-wrap:wrap;gap:8px}
-    .tag{display:inline-block;padding:.35rem .6rem;background:#fff;border:1px solid var(--accent-weak);border-radius:999px;font-size:.95rem}
-
     /* Karten & Grids */
     .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
     @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
@@ -75,11 +64,14 @@
 
     /* Referenzen */
     .quote{font-style:italic}
-    .ref-note{background:#fff;border:1px dashed var(--accent-weak);border-radius:12px;padding:12px}
+    .stars{color:#f5c518;font-size:1.2rem;margin-top:6px}
 
-    /* Cookie */
-    .cookie-banner{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:9999;
-      background:#fff;border:1px solid var(--ring);border-radius:12px;box-shadow:var(--shadow);padding:14px 16px;max-width:92vw}
+    /* Footer */
+    footer{background:#fafafa;border-top:1px solid #eee;padding:20px 0;margin-top:40px;font-size:14px;color:#666;text-align:center}
+
+    /* Cookie mittig mittig */
+    .cookie-banner{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:9999;
+      background:#fff;border:1px solid var(--ring);border-radius:12px;box-shadow:var(--shadow);padding:20px;max-width:92vw}
     .cookie-banner p{margin:0 0 10px}
     .cookie-actions{display:flex;gap:8px;justify-content:flex-end}
   </style>
@@ -97,7 +89,6 @@
       <a href="#unterlagen">Unterlagen</a>
       <a href="#referenzen">Referenzen</a>
     </nav>
-    <a class="cv-btn" href="Natacha%20Schmidt%20CV.pdf" target="_blank">CV ansehen</a>
   </div>
 </header>
 
@@ -131,15 +122,49 @@
   </div>
 </section>
 
-<!-- Führung (4 Karten) -->
+<!-- Führung (4 Blöcke mit Details) -->
 <section id="fuehrung">
   <div class="wrap">
     <h2>Führung</h2>
     <div class="grid-2">
-      <div class="card"><h3>Führung 4.0 (IU Akademie)</h3><p class="muted">Hochschulzertifikat · 4 Module</p></div>
-      <div class="card"><h3>IHK: Vertriebsprofi & Führungskraft</h3><p class="muted">92 Std. · abgeschlossen</p></div>
-      <div class="card"><h3>Insights-Führung & Coaching</h3><p class="muted">Farben-Modell · persönlichkeitsorientiert</p></div>
-      <div class="card"><h3>Seminare & Praxis</h3><p class="muted">Kommunikation, Konfliktprävention, Zeitmanagement</p></div>
+      <div class="card">
+        <h3>Führung 4.0 (IU Akademie)</h3>
+        <p class="muted">Hochschulzertifikat · 4 Module</p>
+        <ul>
+          <li><strong>Digital Leadership & Change</strong> – Führen in Transformation, Veränderungsprozesse steuern.</li>
+          <li><strong>Führungskommunikation & Motivation</strong> – klare Ziele, Feedback, Coaching-Gespräche.</li>
+          <li><strong>Organisation & agile Methoden</strong> – Rollen, Rituale, Kanban/Scrum-Elemente pragmatisch.</li>
+          <li><strong>Selbst- & Zeitmanagement</strong> – Priorisierung, Resilienz, produktive Routinen.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>IHK: Vertriebsprofi & Führungskraft im Direktvertrieb</h3>
+        <p class="muted">92 Lehrgangsstunden · abgeschlossen</p>
+        <ul>
+          <li>Teamaufbau & Coaching (Onboarding, Shadowing, Zielvereinbarungen).</li>
+          <li>Digitale Verkaufskonzepte & Kundengewinnung.</li>
+          <li>KPI-Steuerung, Pipeline & Routinen für nachhaltige Aktivität.</li>
+          <li>Rahmen & Grundlagen im Direktvertrieb.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Insights-Führung & Coaching</h3>
+        <p class="muted">Farben-Modell · persönlichkeitsorientierte Führung</p>
+        <ul>
+          <li>Bedürfnisorientierte Führung mit Insights Discovery.</li>
+          <li>Individuelle Teamkommunikation durch Farbprofile.</li>
+          <li>Förderung von Motivation & Zusammenarbeit.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Seminare & Praxis</h3>
+        <p class="muted">Ergänzende Führungs-Trainings</p>
+        <ul>
+          <li>Kommunikation, Rollenklarheit und Konfliktprävention.</li>
+          <li>Feedback-Formate & Mitarbeiterentwicklung.</li>
+          <li>Selbst- & Zeitmanagement – Priorisierung, Resilienz, Routinen.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -149,8 +174,24 @@
   <div class="wrap">
     <h2>Hard Skills</h2>
     <div class="grid-2">
-      <div class="card"><h3>Prozesse & Tools</h3><ul><li>Exportkoordination (ATLAS, IHK)</li><li>SAP · CRM</li><li>Excel (Automatisierung, Pivot)</li></ul></div>
-      <div class="card"><h3>Organisation</h3><ul><li>Disposition Auslandseinsätze</li><li>Schnittstellenmanagement</li><li>Reklamationsmanagement</li></ul></div>
+      <div class="card">
+        <h3>Prozesse & Tools</h3>
+        <ul>
+          <li>Exportkoordination (ATLAS, IHK)</li>
+          <li>SAP · CRM · ERP</li>
+          <li>Excel (Automatisierung, Pivot, Makros)</li>
+          <li>Buchhaltung & Rechnungswesen (USt, Kontierung)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Organisation</h3>
+        <ul>
+          <li>Disposition Auslandseinsätze</li>
+          <li>Schnittstellenmanagement</li>
+          <li>Projektkoordination</li>
+          <li>Reklamationsmanagement</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -160,8 +201,22 @@
   <div class="wrap">
     <h2>Soft Skills</h2>
     <div class="grid-2">
-      <div class="card"><ul><li>Führung & Coaching</li><li>Kommunikationsstärke</li><li>Konfliktmanagement</li></ul></div>
-      <div class="card"><ul><li>Lösungsorientierung</li><li>Struktur & Eigenverantwortung</li><li>Insights-Führung</li></ul></div>
+      <div class="card">
+        <ul>
+          <li>Führung & Coaching</li>
+          <li>Kommunikationsstärke</li>
+          <li>Konfliktmanagement</li>
+          <li>Motivation & Teamspirit</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul>
+          <li>Lösungsorientierung</li>
+          <li>Struktur & Eigenverantwortung</li>
+          <li>Insights-Führung</li>
+          <li>Belastbarkeit & Resilienz</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -186,11 +241,27 @@
   <div class="wrap">
     <h2>Referenzen</h2>
     <div class="grid-2">
-      <div class="card"><p class="quote">„Zuverlässig, strukturiert, mit sicherem Blick für Abläufe.“</p><p class="muted">– Aus Arbeitszeugnissen</p></div>
-      <div class="card ref-note"><p>Alle Referenzen findest du in meinen Arbeitszeugnissen.</p><p><a class="btn primary" href="Natacha_Schmidt_Arbeitszeugnisse.pdf" target="_blank">Arbeitszeugnisse ansehen</a></p></div>
+      <div class="card">
+        <p class="quote">„Zuverlässig, strukturiert, mit sicherem Blick für Abläufe.“</p>
+        <p class="muted">– Aus Arbeitszeugnissen</p>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="card">
+        <p class="quote">„Engagiert, kommunikativ und lösungsorientiert.“</p>
+        <p class="muted">– Aus Arbeitszeugnissen</p>
+        <div class="stars">★★★★★</div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <p>Kontakt: <a href="mailto:natacha.schmidt.lux@gmail.com">natacha.schmidt.lux@gmail.com</a> · Tel: +49 1578 3922128</p>
+    <p>Diese Seite ist eine <strong>private Bewerbungs-Landingpage</strong> und dient ausschließlich dem Bewerbungsprozess.</p>
+  </div>
+</footer>
 
 <!-- Cookie-Banner -->
 <div class="cookie-banner" id="cookieBanner">
@@ -209,4 +280,3 @@ function acceptCookie(){localStorage.setItem(KEY,'1');hideCookie()}
 
 </body>
 </html>
-
